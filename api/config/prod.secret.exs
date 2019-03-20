@@ -9,7 +9,7 @@ use Mix.Config
 # kept out of version control and might be hard to recover
 # or recreate for your teammates (or yourself later on).
 config :api, ApiWeb.Endpoint,
-  secret_key_base: "7dufd94WbKANp5GZYaFdDOZeMYT9ENQf+ytHe8yt24wWXSes9Mg0dlql+qaljF8u"
+  secret_key_base: "S2deMgpPV7+4o94/5yy6ywVn3WdX6+hqj8m8ajvj+YJ3TyBclvVigim5VZPaBJh4"
 
 # Configure your database
 config :api, Api.Repo,
