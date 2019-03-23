@@ -3,11 +3,11 @@ defmodule ApiWeb.QuoteView do
   alias ApiWeb.QuoteView
 
   def render("index.json", %{quotes: quotes}) do
-    %{data: render_many(quotes, QuoteView, "quote.json")}
+    render_many(quotes, QuoteView, "quote.json")
   end
 
   def render("show.json", %{quote: quote}) do
-    %{data: render_one(quote, QuoteView, "quote.json")}
+    render_one(quote, QuoteView, "quote.json")
   end
 
   def render("quote.json", %{quote: quote}) do

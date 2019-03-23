@@ -41,7 +41,8 @@ defmodule Api.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:httpoison, "~> 1.4"}
+      {:httpoison, "~> 1.4"},
+      {:cors_plug, "~> 2.0"}
     ]
   end
 

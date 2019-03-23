@@ -2,6 +2,7 @@ defmodule ApiWeb.Router do
   use ApiWeb, :router
 
   pipeline :api do
+    plug CORSPlug, origins: ["*"]
     plug :accepts, ["json"]
   end
 
