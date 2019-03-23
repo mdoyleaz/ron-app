@@ -5,14 +5,16 @@ defmodule ApiWeb.QuoteControllerTest do
   alias Api.Data.Quote
 
   @create_attrs %{
-    average: 42,
-    quote: "some quote"
+    quote: "some quote",
+    rating: [],
+    sentenceLength: 42
   }
   @update_attrs %{
-    average: 43,
-    quote: "some updated quote"
+    quote: "some updated quote",
+    rating: [],
+    sentenceLength: 43
   }
-  @invalid_attrs %{average: nil, quote: nil}
+  @invalid_attrs %{quote: nil, rating: nil, sentenceLength: nil}
 
   def fixture(:quote) do
     {:ok, quote} = Data.create_quote(@create_attrs)
@@ -39,8 +41,9 @@ defmodule ApiWeb.QuoteControllerTest do
 
       assert %{
                "id" => id,
-               "average" => 42,
-               "quote" => "some quote"
+               "quote" => "some quote",
+               "rating" => [],
+               "sentenceLength" => 42
              } = json_response(conn, 200)["data"]
     end
 
@@ -61,8 +64,9 @@ defmodule ApiWeb.QuoteControllerTest do
 
       assert %{
                "id" => id,
-               "average" => 43,
-               "quote" => "some updated quote"
+               "quote" => "some updated quote",
+               "rating" => [],
+               "sentenceLength" => 43
              } = json_response(conn, 200)["data"]
     end
 

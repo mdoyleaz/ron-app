@@ -11,33 +11,26 @@ defmodule ApiWeb.QuoteController do
     render(conn, "index.json", quotes: quotes)
   end
 
-  def create(conn, %{"quote" => quote_params}) do
-    with {:ok, %Quote{} = quote} <- Data.create_quote(quote_params) do
-      conn
-      |> put_status(:created)
-      |> put_resp_header("location", Routes.quote_path(conn, :show, quote))
-      |> render("show.json", quote: quote)
-    end
-  end
-
   def show(conn, %{"id" => id}) do
     quote = Data.get_quote!(id)
     render(conn, "show.json", quote: quote)
   end
 
-  def update(conn, %{"id" => id, "quote" => quote_params}) do
-    quote = Data.get_quote!(id)
-
-    with {:ok, %Quote{} = quote} <- Data.update_quote(quote, quote_params) do
-      render(conn, "show.json", quote: quote)
-    end
+  def sentence_length(conn, %{"length" => sentence_size}) do
+    quotes = Data.list_quotes_by_length(sentence_size)
+    render(conn, "index.json", quotes: quotes)
   end
 
-  def delete(conn, %{"id" => id}) do
-    quote = Data.get_quote!(id)
+  def update_rating(conn, %{"id" => id, "rating" => rating}) do
+    if rating < 0 or rating > 5 do
+      render(conn, "rating_accepted.json", rating: rating)
+    else
+      quote = Data.get_quote!(id)
 
-    with {:ok, %Quote{}} <- Data.delete_quote(quote) do
-      send_resp(conn, :no_content, "")
+      appended_rating = quote.rating ++ [rating]
+      Data.update_quote(quote, %{"rating" => appended_rating})
+
+      render(conn, "rating_accepted.json", rating: rating)
     end
   end
 end

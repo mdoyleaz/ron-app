@@ -4,7 +4,8 @@ defmodule Api.Repo.Migrations.CreateQuotes do
   def change do
     create table(:quotes) do
       add :quote, :string
-      add :average, :integer
+      add :rating, {:array, :integer}
+      add :sentenceLength, :integer
 
       timestamps()
     end

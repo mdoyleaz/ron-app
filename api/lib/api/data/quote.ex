@@ -3,8 +3,9 @@ defmodule Api.Data.Quote do
   import Ecto.Changeset
 
   schema "quotes" do
-    field :average, :integer
     field :quote, :string
+    field :rating, {:array, :integer}
+    field :sentenceLength, :integer
 
     timestamps()
   end
@@ -12,7 +13,7 @@ defmodule Api.Data.Quote do
   @doc false
   def changeset(quote, attrs) do
     quote
-    |> cast(attrs, [:quote, :average])
-    |> validate_required([:quote, :average])
+    |> cast(attrs, [:quote, :rating, :sentenceLength])
+    |> validate_required([:quote, :rating, :sentenceLength])
   end
 end

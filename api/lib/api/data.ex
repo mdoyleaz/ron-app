@@ -22,6 +22,31 @@ defmodule Api.Data do
   end
 
   @doc """
+  Returns the list of quotes filtered by sentence length
+
+  ## Examples
+
+      iex> list_quotes_by_length()
+      [%Quote{}, ...]
+
+  """
+  def list_quotes_by_length(sentence_size \\ nil) do
+    Quote
+    |> filter_quote_length(sentence_size)
+    |> Repo.all()
+  end
+
+  defp filter_quote_length(query, nil), do: query
+
+  defp filter_quote_length(query, sentence_size) do
+    case sentence_size do
+      "small" -> where(query, [p], p.sentenceLength <= 4)
+      "medium" -> where(query, [p], p.sentenceLength >= 5 and p.sentenceLength <= 12)
+      "large" -> where(query, [p], p.sentenceLength >= 13)
+    end
+  end
+
+  @doc """
   Gets a single quote.
 
   Raises `Ecto.NoResultsError` if the Quote does not exist.

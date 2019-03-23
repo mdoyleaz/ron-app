@@ -9,6 +9,7 @@ defmodule ApiWeb.Router do
     pipe_through :api
 
     resources "/quotes", QuoteController, only: [:index, :show]
-    # get "quotes/:id", QuoteController, :show
+    get "/quotes/length/:length", QuoteController, :sentence_length
+    post "/quotes/rate", QuoteController, :update_rating
   end
 end
