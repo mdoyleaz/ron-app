@@ -1,8 +1,14 @@
-.navbar{
+.navbar {
   background-color: #48435C;
   margin-bottom: 5%;
 }
 
 .navbar-brand {
-  position: absolute;
+  padding: 0px 15px;
+  max-height: 50px;
+  max-width: 65px;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
 }
