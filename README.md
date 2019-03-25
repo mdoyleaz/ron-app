@@ -26,11 +26,11 @@ Response:
 ``` 
 [
   {
-"id": 52, -> "integer"
-"quote": "Quote", -> "string"
-"rating": 0, -> "integer"
-"sentenceLength": 10 -> "integer"
-},
+    "id": 52, -> "integer"
+    "quote": "Quote", -> "string"
+    "rating": 0, -> "integer"
+    "sentenceLength": 10 -> "integer"
+  },
 ...
 ]
 ```
@@ -42,10 +42,10 @@ Endpoint: `http://url:4000/api/quotes/<id>`
 Response:
 ```
 {
-"id": 52, -> "integer"
-"quote": "Quote", -> "string"
-"rating": 0, -> "integer"
-"sentenceLength": 10 -> "integer"
+  "id": 52, -> "integer"
+  "quote": "Quote", -> "string"
+  "rating": 0, -> "integer"
+  "sentenceLength": 10 -> "integer"
 }
 ```
 
@@ -60,11 +60,11 @@ Response:
 ```
 [
   {
-"id": 52, -> "integer"
-"quote": "Quote", -> "string"
-"rating": 0, -> "integer"
-"sentenceLength": 10 -> "integer"
-},
+    "id": 52, -> "integer"
+    "quote": "Quote", -> "string"
+    "rating": 0, -> "integer"
+    "sentenceLength": 10 -> "integer"
+  },
 ...
 ]
 ```
@@ -79,7 +79,7 @@ Restrictions: `rating` must be a number between 1 and 5
 Payload:
 ```
 {
-  id: 'quote id', -> "integer"
+  "id": 'quote id', -> "integer"
   "rating": quote_rating -> "integer"
 }
 ```
