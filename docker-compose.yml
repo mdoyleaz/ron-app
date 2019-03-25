@@ -1,6 +1,6 @@
 version: '3'
 services:
-  web:
+  api:
     build:
       context: ./api
       dockerfile: 'Dockerfile'
@@ -10,9 +10,20 @@ services:
       - ./api:/app/api
     depends_on:
       - db
-    command:
-      - './run.sh'
+    command: ./run.sh
   db:
     image: "postgres"
     ports:
       - "5432:5432"
+  frontend:
+      container_name: frontend
+      build:
+        context: ./frontend
+        dockerfile: 'Dockerfile'
+      volumes:
+        - ./frontend:/app/frontend
+      depends_on:
+        - api
+      ports:
+        - 3000:3000
+      command: npm start

@@ -38,7 +38,7 @@ class TopQuotes extends Component {
           <tr>
             <th>#</th>
             <th>Quote</th>
-            <th>Rating</th>
+            <th width="15%">Rating</th>
           </tr>
         </thead>
         <tbody>

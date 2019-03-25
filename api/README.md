@@ -18,7 +18,10 @@ mix phx.gen.json Data Quote quotes quote:string rating:array:integer sentenceLen
 
 I decided to take an easy route with this, and just pull all of the quotes into the database from the beginning, instead of having the API called each time by the frontend. I understand this wouldn't be ideal in a production project, but in this case it allowed me to store the quotes and provide the ability to filter than by sentence length in the backend.
 
-I created a seed to feed these into my database with Phoenix `(api/priv/repo/seeds/quote_seeds.exs)`
+### Datbase Seeds
+Location: `api/priv/repo/seeds/quote_seeds.exs`
+
+I created a seed to feed these into my database with Phoenix
 
 I pulled in the results using the `HTTPoision library` and used `Jason` to decode it to a data type readable by Elixir
 
@@ -37,7 +40,8 @@ end
 ```
 
 
-### Modifications in `api/lib/views/quote_view.ex`
+### Views
+Location: `api/lib/views/quote_view.ex`
 
 I modified the render method in this view to calculate and return the average rating of the quote.
 
@@ -79,7 +83,9 @@ end
 To handle the queries for returning data by the provided sentence size, `small, medium and large`, I created a function in the `quote_controller.ex` as well as added some code to filter the queries based on the requested size.
 
 
-###### `api/lib/api_web/controllers/quote_controller.ex`:
+#### Contoller
+
+Location: `api/lib/api_web/controllers/quote_controller.ex`
 
 ```elixir
 def sentence_length(conn, %{"length" => sentence_size}) do
@@ -91,7 +97,9 @@ end
 This `sentence_length` function calls a query located which contains a couple of private functions which handle a null value and one that possesses a case statement to provide the conditional statements to be passed to `Repo.all()`
 
 
-###### `api/lib/api/data.ex`:
+#### Database Filters
+
+Location: `api/lib/api/data.ex`:
 ```elixir
 def list_quotes_by_length(sentence_size \\ nil) do
   Quote

@@ -61,6 +61,6 @@ config :api, Api.Repo,
   username: "postgres",
   password: "postgres",
   database: "quote_db",
-  hostname: "0.0.0.0",
+  hostname: "db",
   port: 5432,
   pool_size: 10

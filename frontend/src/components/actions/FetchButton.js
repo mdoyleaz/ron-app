@@ -17,7 +17,7 @@ class FetchButton extends Component {
   // Retrieves list of quotes by sentence length and returns a random quote from list
   handleClick() {
     this.setState({ isLoading: true }) // Changes button to show 'Loading...' until request is completed
-    axios.get(`http://127.0.0.01:4000/api/quotes/length/${this.props.option.toLowerCase()}`)
+    axios.get(`http://127.0.0.1:4000/api/quotes/length/${this.props.option.toLowerCase()}`)
       .then(response => {
 
         const randIndex = Math.floor(Math.random() * response.data.length)

@@ -13,7 +13,7 @@ const NavigationBar = () => {
       <Navbar.Toggle className="navbar-toggler-left" aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav>
-          <Nav.Link href="#home">Random Quotes</Nav.Link>
+          <Nav.Link href="#quotes">Random Quotes</Nav.Link>
           <Nav.Link href="#topquotes">Top Rated</Nav.Link>
         </Nav>
       </Navbar.Collapse>

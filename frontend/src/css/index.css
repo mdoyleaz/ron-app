@@ -27,6 +27,19 @@ body {
   margin-left: 5px;
 }
 
-.icon{
-  width:20px;
+
+.rating-img{
+  width: 20px;
+}
+
+.jumbotron {
+  background-color: #0B3948;
+  color: white;
+  text-align: center;
+  margin: 100px;
+  border-radius: 20px;
+}
+
+.ron-image {
+  width: 50px;
 }
