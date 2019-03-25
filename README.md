@@ -23,7 +23,7 @@ Method: `GET`
 Endpoint: `http://url:4000/api/quotes`
 
 Response:
-``` json
+``` 
 [
   {
 "id": 52, -> "integer"
@@ -40,7 +40,7 @@ Method: `GET`
 Endpoint: `http://url:4000/api/quotes/<id>`
 
 Response:
-```JSON
+```
 {
 "id": 52, -> "integer"
 "quote": "Quote", -> "string"
@@ -57,7 +57,7 @@ Endpoint: `http://url:4000/api/quotes/length/<option>`
 Options: [`small`, `medium`, `large`]
 
 Response:
-``` json
+```
 [
   {
 "id": 52, -> "integer"
@@ -77,14 +77,14 @@ Endpoint: `http://url:4000/api/quotes/rate`
 Restrictions: `rating` must be a number between 1 and 5
 
 Payload:
-```JSON
+```
 {
   id: 'quote id', -> "integer"
   "rating": quote_rating -> "integer"
 }
 ```
 Response:
-```JSON
+```
 {
     "accepted": "rating accepted"
 }
