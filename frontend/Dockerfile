@@ -2,6 +2,9 @@
 
 FROM node
 
-WORKDIR /app/frontend
-COPY package.json /app/frontend
+RUN mkdir /frontend
+
+COPY . /frontend
+WORKDIR /frontend
+
 RUN npm install

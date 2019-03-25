@@ -1,3 +1,6 @@
+# Demo
+## [Link To App](http://35.236.78.148/)
+
 # Putting it all together
 
 To put the project together I wrapped it all into three separate docker containers, one for the postgres database, the Phoenix back end and one for the React front end.
@@ -23,7 +26,7 @@ Method: `GET`
 Endpoint: `http://url:4000/api/quotes`
 
 Response:
-``` 
+```
 [
   {
     "id": 52, -> "integer"
