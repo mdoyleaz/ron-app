@@ -14,16 +14,18 @@ class FetchButton extends Component {
     };
   }
 
+  // Retrieves list of quotes by sentence length and returns a random quote from list
   handleClick() {
-    this.setState({ isLoading: true })
+    this.setState({ isLoading: true }) // Changes button to show 'Loading...' until request is completed
     axios.get(`http://127.0.0.01:4000/api/quotes/length/${this.props.option.toLowerCase()}`)
       .then(response => {
 
         const randIndex = Math.floor(Math.random() * response.data.length)
         const randomQuote = response.data[randIndex]
+
         this.setState({ isLoading: false });
 
-        this.props.grabQuote(randomQuote)
+        this.props.grabQuote(randomQuote, this.props.option) // Passes quote back to parent component
       })
       .catch(error => console.log(error))
   }
