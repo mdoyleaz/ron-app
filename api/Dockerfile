@@ -1,20 +1,9 @@
-#!/bin/sh
-set -e
-# Wait for Postgres to become available.
-until psql -h db -U "postgres" -c '\q' 2>/dev/null; do
-  >&2 echo "Postgres is unavailable - sleeping"
-  sleep 1
-done
-
-mix deps.get
-mix ecto.create
-mix ecto.migrate
-
-if !(test -f seeds_built)
-then
-mix archive.install hex phx_new 1.4.2
-mix run priv/repo/seeds/quote_seeds.exs
-touch seeds_built
-fi
-
-mix phx.server
+FROM elixir
+RUN apt-get update && apt-get install --yes postgresql-client
+RUN apt-get install --yes inotify-tools
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
+RUN mix local.hex --force
+RUN mix local.rebar --force
+RUN mix archive.install hex phx_new 1.4.2
