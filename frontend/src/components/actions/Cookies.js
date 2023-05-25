@@ -14,7 +14,7 @@ const writeCookie = (cookieName, value) => {
 
     bake_cookie(cookieName, cookieData, expireDate); // Adds quote id to cookies
   } else {
-    console.log("Creating Cookie");
+    console.log("Creating Cookies");
     bake_cookie(cookieName, [value]); // Adds new array to cookies
   };
 };
